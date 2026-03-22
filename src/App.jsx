@@ -1,4 +1,4 @@
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 
 function Home() {
   return (
@@ -20,17 +20,18 @@ function About() {
 
 function Contact() {
   return (
-    <div className="text-center mt-10">
-      <h1 className="text-4xl font-bold text-purple-600">Contact Page</h1>
-      <p className="mt-4 text-gray-600">Reach us anytime 📡</p>
-    </div>
+ <>
+ <td className='px-4 py-2 border-2'>Name</td>
+ <td className='px-4 py-2 border-2'>Email</td>
+ <td className='px-4 py-2 border-2'>Role</td>
+ </>
   );
 }
 
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <>
       
       <nav className="bg-green-600 text-white p-4 flex justify-between items-center">
         <h1 className="text-xl font-bold">MyApp</h1>
@@ -56,6 +57,6 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </div>
-    </BrowserRouter>
+    </>
   );
 }
