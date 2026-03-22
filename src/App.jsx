@@ -1,57 +1,18 @@
-import { Link, Route, Routes } from "react-router-dom";
-
-function Home() {
-  return (
-    <div className="text-center mt-10">
-      <h1 className="text-4xl font-bold text-blue-600">Home Page</h1>
-      <p className="mt-4 text-gray-600">Welcome to our app 🏡</p>
-    </div>
-  );
-}
-
-function About() {
-  return (
-    <div className="text-center mt-10">
-      <h1 className="text-4xl font-bold text-green-600">About Page</h1>
-      <p className="mt-4 text-gray-600">We build amazing apps !</p>
-    </div>
-  );
-}
-
-function Contact() {
-  return (
- <>
- <td className='px-4 py-2 border-2'>Name</td>
- <td className='px-4 py-2 border-2'>Email</td>
- <td className='px-4 py-2 border-2'>Role</td>
- </>
-  );
-}
+import { Route, Routes } from "react-router-dom";
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
+import Home from "./Pages/Home";
+import NotFound from "./Pages/NotFound";
+import NavBar from "./Pages/NavBar";
 
 
 export default function App() {
   return (
     <>
-      
-      <nav className="bg-green-600 text-white p-4 flex justify-between items-center">
-        <h1 className="text-xl font-bold">MyApp</h1>
-        
-        <div className="space-x-6">
-          <Link className="hover:text-blue-400 transition" to="/">
-            Home
-          </Link>
-          <Link className="hover:text-blue-400 transition" to="/about">
-            About
-          </Link>
-          <Link className="hover:text-blue-400 transition" to="/contact">
-            Contact
-          </Link>
-        </div>
-      </nav>
-
-      
+      <NavBar/>
       <div className="p-6">
         <Routes>
+          <Route path="*" element={<NotFound/>} />
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
