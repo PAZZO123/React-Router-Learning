@@ -7,10 +7,10 @@ function Contact() {
  <div className='bg-white rounded-2xl shadow-md shadow-blue-800 p-8'>
  <p className='text-gray-600 mb-4'>Reach us at:</p>
  <a
- href='mailto:hello@example.com'
+ href='mailto:smbabazipatrick@gmail.com'
  className='text-blue-600 font-semibold hover:underline text-lg'
  >
- hello@example.com ✉️
+ smbabazipatrick@gmail.com ✉️
  </a>
  </div>
  </div>
