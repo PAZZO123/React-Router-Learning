@@ -10,7 +10,7 @@ function sideLink({ isActive }) {
 function DashboardLayout() {
  return (
  <div className='flex min-h-[calc(100vh-64px)]'>
- {/* Sidebar */}
+
  <aside className='w-56 bg-blue-800 text-white flex-shrink-0 p-4'>
  <p className='text-xs uppercase tracking-widest text-blue-300 mb-4 px-4'>
  Dashboard
