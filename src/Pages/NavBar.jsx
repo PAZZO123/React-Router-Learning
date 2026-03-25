@@ -18,6 +18,8 @@ function NavBar() {
  <NavLink to='/about' className={navClass}>About</NavLink>
  <NavLink to='/products' className={navClass}>Products</NavLink>
  <NavLink to='/contact' className={navClass}>Contact</NavLink>
+  <NavLink to='/dashboard' className={navClass}>Dashboard</NavLink>
+  <NavLink to='/dummy' className={navClass}>Not Found</NavLink>
  </nav>
  </div>
  </header>
