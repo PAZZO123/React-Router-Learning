@@ -1,12 +1,15 @@
- import { Route, Routes } from "react-router-dom";
-import DashboardLayout from './layouts/DashboardLayout';
-import About from "./Pages/About";
-import Analytics from './Pages/Analytics';
-import DashboardHome from './Pages/DashboardHome';
-import Home from "./Pages/Home";
-import NotFound from "./Pages/NotFound";
+ import { lazy, Suspense } from "react";
+import { Route, Routes } from "react-router-dom";
+import PageLoader from "./Pages/Load";
+
+const DashboardLayout= lazy(() =>import( './layouts/DashboardLayout'))
+const  About =lazy(()=> import("./Pages/About"))
+const Analytics =lazy( ()=>import('./Pages/Analytics'))
+const  DashboardHome = lazy(()=> import('./Pages/DashboardHome'))
+const Home =lazy(()=>import( "./Pages/Home"))
+const NotFound =lazy(()=>import ("./Pages/NotFound"))
 // import ProductDetail from "./Pages/ProductDetail";
-import AuthProvider from "./context/AuthContext";
+//import AuthProvider from "./context/AuthContext";
 import NavBar from "./Pages/NavBar";
 
 
@@ -27,38 +30,38 @@ import NavBar from "./Pages/NavBar";
 // }
 
 //import { Route, Routes } from "react-router-dom";
-import Login from "./Pages/Login";
-import Products from "./Pages/Product";
-import ProductDetail from "./Pages/ProductDetail";
-import AllProducts from "./Pages/Search";
+const Login=lazy(()=>import("./Pages/Login"))
+const Products=lazy(()=>import("./Pages/Product"))
+const ProductDetail =lazy(()=>import ("./Pages/ProductDetail"))
+const AllProducts =lazy( ()=>import("./Pages/Search"))
 
 export default function App() {
-  return (<>
-    <NavBar/>
+  return (
+    <>
+      <NavBar />
 
-      <Routes>
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
 
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/search" element={<AllProducts />} />
+          <Route path="/about" element={<About />} />
 
-        <Route path="/" element={<Home/>} />
-         <Route path="/Login" element={<Login/>} />
-        <AuthProvider>
-        <Route path="/search" element={<AllProducts/>}/>
-         <Route path="/about" element={<About/>} />
-       
-        <Route path="/products" element={<Products />} />
-        <Route path="*" element={<NotFound/>}/>
-        <Route path="/products/:productId" element={<ProductDetail />} />
-         <Route path='/' element={<Home />} />
-             {/* Nested Routes */}
-             <Route path='/dashboard' element={<DashboardLayout />}>
-             <Route index element={<DashboardHome />} />
-              <Route path='analytics' element={<Analytics />} />
-             
-              </Route>
-              </AuthProvider>
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/:productId" element={<ProductDetail />} />
 
-      </Routes>
-      </>
-    
+          {/* Dashboard */}
+          <Route path="/dashboard" element={<DashboardLayout />}>
+            <Route index element={<DashboardHome />} />
+            <Route path="analytics" element={<Analytics />} />
+          </Route>
+
+          {/* Always last */}
+          <Route path="*" element={<NotFound />} />
+
+        </Routes>
+      </Suspense>
+    </>
   )
 }

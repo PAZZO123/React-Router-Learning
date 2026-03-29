@@ -1,38 +1,31 @@
-import { Link, useLocation } from 'react-router-dom';
-function PageBreadcrumb() {
- const location = useLocation();
- console.log(location)
- return (
- <div className='text-sm text-gray-500 px-6 py-2 bg-white border-b'>
- You are on: <span className='font-mono text-blue-700'>
- {location.pathname}
- </span>
- </div>
- );
-}
-
+import { Link, useNavigate } from 'react-router-dom';
 function NotFound() {
-    
+ const navigate = useNavigate();
  return (
- <div className='flex flex-col items-center justify-center min-h-[70vh]
+ <div className='min-h-[80vh] flex flex-col items-center justify-center
  text-center px-4'>
- <h1 className='text-9xl font-black text-blue-800 leading-none'>
+ <p className='text-8xl font-black text-blue-100 select-none leading-none'>
  404
- </h1>
- <p className='text-2xl font-semibold text-gray-700 mt-4'>
- Page Not Found
  </p>
- <p className='text-gray-500 mt-2 mb-8'>
- The page you are looking for does not exist.
+ <h1 className='text-3xl font-bold text-gray-800 -mt-4'>Page Not Found</h1>
+ <p className='text-gray-500 mt-3 mb-8 max-w-sm'>
+ The page you are looking for does not exist or has been moved.
  </p>
- <PageBreadcrumb/>
- <Link
- to='/'
- className='bg-blue-800 text-white px-6 py-3 rounded-lg
- font-semibold hover:bg-blue-700 transition-colors'
+ <div className='flex gap-3'>
+ <button
+ onClick={() => navigate(-1)}
+ className='border border-gray-300 text-gray-700 px-5 py-2.5
+ rounded-lg font-medium hover:bg-gray-50 transition-colors'
  >
- Back to Home
+ ← Go Back
+ </button>
+ <Link to='/'
+ className='bg-blue-800 text-white px-5 py-2.5 rounded-lg font-medium
+ hover:bg-blue-700 transition-colors'
+ >
+ Home
  </Link>
+ </div>
  </div>
  );
 }
