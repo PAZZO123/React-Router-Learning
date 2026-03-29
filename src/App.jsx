@@ -6,6 +6,7 @@ import DashboardHome from './Pages/DashboardHome';
 import Home from "./Pages/Home";
 import NotFound from "./Pages/NotFound";
 // import ProductDetail from "./Pages/ProductDetail";
+import AuthProvider from "./context/AuthContext";
 import NavBar from "./Pages/NavBar";
 
 
@@ -29,6 +30,7 @@ import NavBar from "./Pages/NavBar";
 import Login from "./Pages/Login";
 import Products from "./Pages/Product";
 import ProductDetail from "./Pages/ProductDetail";
+import AllProducts from "./Pages/Search";
 
 export default function App() {
   return (<>
@@ -38,8 +40,11 @@ export default function App() {
 
 
         <Route path="/" element={<Home/>} />
+         <Route path="/Login" element={<Login/>} />
+        <AuthProvider>
+        <Route path="/search" element={<AllProducts/>}/>
          <Route path="/about" element={<About/>} />
-        <Route path="/Login" element={<Login/>} />
+       
         <Route path="/products" element={<Products />} />
         <Route path="*" element={<NotFound/>}/>
         <Route path="/products/:productId" element={<ProductDetail />} />
@@ -50,6 +55,7 @@ export default function App() {
               <Route path='analytics' element={<Analytics />} />
              
               </Route>
+              </AuthProvider>
 
       </Routes>
       </>

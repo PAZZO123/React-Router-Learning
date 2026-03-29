@@ -20,6 +20,7 @@ function NavBar() {
  <NavLink to='/login' className={navClass}>Login</NavLink>
   <NavLink to='/dashboard' className={navClass}>Dashboard</NavLink>
   <NavLink to='/dummy' className={navClass}>Not Found</NavLink>
+  <NavLink to='/search' className={navClass}>Search</NavLink>
  </nav>
  </div>
  </header>
