@@ -2,7 +2,6 @@
 import DashboardLayout from './layouts/DashboardLayout';
 import About from "./Pages/About";
 import Analytics from './Pages/Analytics';
-import Contact from "./Pages/Contact";
 import DashboardHome from './Pages/DashboardHome';
 import Home from "./Pages/Home";
 import NotFound from "./Pages/NotFound";
@@ -27,6 +26,7 @@ import NavBar from "./Pages/NavBar";
 // }
 
 //import { Route, Routes } from "react-router-dom";
+import Login from "./Pages/Login";
 import Products from "./Pages/Product";
 import ProductDetail from "./Pages/ProductDetail";
 
@@ -39,7 +39,7 @@ export default function App() {
 
         <Route path="/" element={<Home/>} />
          <Route path="/about" element={<About/>} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/Login" element={<Login/>} />
         <Route path="/products" element={<Products />} />
         <Route path="*" element={<NotFound/>}/>
         <Route path="/products/:productId" element={<ProductDetail />} />

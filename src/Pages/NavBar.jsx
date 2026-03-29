@@ -17,7 +17,7 @@ function NavBar() {
  <NavLink to='/' end className={navClass}>Home</NavLink>
  <NavLink to='/about' className={navClass}>About</NavLink>
  <NavLink to='/products' className={navClass}>Products</NavLink>
- <NavLink to='/contact' className={navClass}>Contact</NavLink>
+ <NavLink to='/login' className={navClass}>Login</NavLink>
   <NavLink to='/dashboard' className={navClass}>Dashboard</NavLink>
   <NavLink to='/dummy' className={navClass}>Not Found</NavLink>
  </nav>
