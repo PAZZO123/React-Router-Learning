@@ -8,28 +8,7 @@ const Analytics =lazy( ()=>import('./Pages/Analytics'))
 const  DashboardHome = lazy(()=> import('./Pages/DashboardHome'))
 const Home =lazy(()=>import( "./Pages/Home"))
 const NotFound =lazy(()=>import ("./Pages/NotFound"))
-// import ProductDetail from "./Pages/ProductDetail";
-//import AuthProvider from "./context/AuthContext";
 import NavBar from "./Pages/NavBar";
-
-
-
-// export default function App() {
-//   return (
-//     <>
-     
-//       <div className="p-6">
-//         <Routes>
-//           <Route path=""
-//          
-//               <Route path='*' element={<NotFound />} />
-//         </Routes>
-//       </div>
-//     </>
-//   );
-// }
-
-//import { Route, Routes } from "react-router-dom";
 const Login=lazy(()=>import("./Pages/Login"))
 const Products=lazy(()=>import("./Pages/Product"))
 const ProductDetail =lazy(()=>import ("./Pages/ProductDetail"))
